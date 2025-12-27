@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:2000px;
+    height:800px;
+     margin-top:20%;
+     margin-left:40%;
+    background-color: rgb(56, 88, 92);
+    transition: 2s;
+    animation-name: rotate;
+    animation-duration: 7s;
+    transform: rotateX('180deg');
+}
+@keyframes rotate {
+    from {background-color:blue black darkgoldenrod darkorange darkred darkmagenta green;}
+    to {background-color:blue black darkgoldenrod darkorange darkred darkmagenta green;}
+}
+div > h1 {
+    text-align: center;
+}

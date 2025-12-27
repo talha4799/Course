@@ -1,0 +1,7 @@
+Command lines
+Login Page (Image)(email field)(password field)(button)(forgot password link) (T & C buttons and links)
+Signup Page ((Image)(fullname)(email field)(password field)(confirm password field)(button)(forgot password link) (T & C buttons and links))
+Navigation bars (one at left one at right both can closed and opened) and one at top permanent
+Image Gallery (images random size with one hover show content and some download or see full image buttons)
+DropDown (open on click close on click or click outside)
+All in html and css with some of javascript

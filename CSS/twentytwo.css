@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: aqua;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    backdrop-filter: blur(7px);
+    width: 96%;
+    height: 65px;
+}
+
+.logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 30px;
+}
+
+.logo p {
+    font-size: medium;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.center { 
+    background: red;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.center .center-nav-links {
+    text-decoration: none;
+    color: aqua;
+    margin: 0 0 0 10px;
+}
+
+.right-options {
+    /* padding: 12px; */
+    margin-right: 10px;
+}
+
+.right-options button {
+    border: 2px solid white;
+    background: rebeccapurple;
+    padding: 12px;
+    border-radius: 24px 10px 20px 7px;
+}
+
+.menu {
+    margin-right: 6px;
+    display: none;
+}
+
+@media screen and (max-width: 830px) {
+    .right-options {
+        left: 10%;
+       
+    }
+    .right {
+        display: flex;
+    }
+    .right-options button:nth-child(2) {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .navbar-container {
+
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+    }
+
+    .center {
+        display: none;
+    }
+
+}
+
+/* MOBILE OVERLAY NAVBAR */
+.mobile-overlay {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    /* height: 100vh; */
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(7px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease-in-out;
+    z-index: 999;
+}
+
+.mobile-overlay.open {
+    display: flex;
+}
+
+.mobile-menu-box {
+    background: white;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideDown .3s ease;
+}
+
+.close-btn {
+    font-size: 30px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.mobile-menu-box a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    padding: 10px 0;
+}
+
+/* Slide animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 830px) {
+    .mobile-overlay {
+        display: none !important;
+    }
+}

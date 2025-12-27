@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Showcase — Rounded Corners, Gradients, Shadows & More</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ======= VARIABLES & PALETTE ======= */
+    :root{
+      --bg-1: #071124; /* deep navy */
+      --bg-2: #071a2a;
+      --card-grad: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      --accent-1: #06b6d4; /* teal */
+      --accent-2: #6366f1; /* indigo */
+      --muted: rgba(255,255,255,0.65);
+      --glass: rgba(255,255,255,0.03);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-1: 0 6px 20px rgba(2,6,23,0.6);
+      --shadow-2: 0 18px 50px rgba(3,8,30,0.6);
+      --glass-border: rgba(255,255,255,0.04);
+      font-family: 'Inter', system-ui, -apple-system, 'Poppins', sans-serif;
+    }
+
+    /* ======= GLOBAL BACKGROUND: multiple backgrounds, radial + image + gradient ======= */
+    html,body{height:100%;}
+    body{
+      margin:0;padding:3rem 1rem;min-height:100vh;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(99,102,241,0.06), transparent 12%),
+        linear-gradient(180deg,var(--bg-1), var(--bg-2));
+      color:white;-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex;align-items:center;justify-content:center;
+    }
+
+    /* ======= LAYOUT ======= */
+    .wrap{width:1150px;max-width:1150px;display:grid;grid-template-columns:1fr 380px;gap:2rem}
+    @media(max-width: 980px){.wrap{grid-template-columns:1fr}}
+
+    /* ======= NAVBAR ======= */
+    .nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+    .brand{display:flex;gap:.9rem;align-items:center}
+    .logo{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));box-shadow: 0 8px 30px rgba(99,102,241,0.18), inset 0 -6px 20px rgba(255,255,255,0.03);}
+    .nav-links{display:flex;gap:1rem}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
+
+    /* ======= HERO CARD ======= */
+    .hero{
+      padding:2rem;border-radius:var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);backdrop-filter: blur(8px) saturate(120%);
+      box-shadow: var(--shadow-2);
+    }
+
+    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(99,102,241,0.12), rgba(6,182,212,0.06));color:var(--accent-1);font-weight:700;font-size:.8rem;margin-bottom:1rem}
+    h1{font-size:2.2rem;margin:0 0 .4rem;line-height:1.05;background:linear-gradient(90deg,#fff,rgba(150,180,255,0.9));-webkit-background-clip:text;background-clip:text;color:transparent}
+    p.lead{color:var(--muted);margin:0 0 1rem}
+
+    .cta{display:flex;gap:1rem}
+    .btn{padding:.75rem 1rem;border-radius:14px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#061226;box-shadow: 0 12px 40px rgba(6,182,212,0.12)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    /* ======= FEATURE GRID (shows multiple shadows + rounded corners) ======= */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+    @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.features{grid-template-columns:1fr}}
+
+    .feature{
+      padding:1rem;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:.5rem;min-height:120px;
+      /* multiple layered box-shadows */
+      box-shadow:
+        0 6px 18px rgba(2,6,23,0.6), /* soft ambient */
+        0 2px 6px rgba(99,102,241,0.06) inset; /* subtle inner glow */
+    }
+
+    .feature .title{font-weight:800}
+    .feature .desc{color:var(--muted);font-size:.93rem}
+
+    /* ======= SIDEBAR: Profile + box-shadow demos ======= */
+    .side{padding:1.25rem;border-radius:var(--radius-md);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));border:1px solid rgba(255,255,255,0.03);height:100%;min-height:360px;display:flex;flex-direction:column;gap:1rem;box-shadow:var(--shadow-1)}
+
+    .avatar{width:86px;height:86px;border-radius:18px;background-image:linear-gradient(135deg,var(--accent-1),var(--accent-2)), url('https://images.unsplash.com/photo-1545996124-1f0f9b9b1e4d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b');background-size:cover;background-origin:padding-box;border:4px solid rgba(255,255,255,0.06);box-shadow: 0 14px 40px rgba(6,182,212,0.12), 0 2px 6px rgba(0,0,0,0.5) inset}
+
+    /* ======= BOX-SHADOW EXAMPLES SECTION (DETAILED) ======= */
+    .shadows{margin-top:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(max-width:700px){.shadows{grid-template-columns:1fr}}
+
+    .shadow-sample{padding:1rem;border-radius:12px;background:var(--card-grad);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .s-left{display:flex;flex-direction:column}
+    .sample-title{font-weight:800}
+    .sample-desc{color:var(--muted);font-size:.9rem}
+
+    /* specific examples to showcase many shadow types */
+    .s-1{box-shadow: 0 6px 20px rgba(2,6,23,0.6);} /* standard soft */
+    .s-2{box-shadow: 0 18px 50px rgba(3,8,30,0.6);} /* deep dramatic */
+    .s-3{box-shadow: 0 10px 30px rgba(99,102,241,0.12), 0 2px 6px rgba(6,182,212,0.06) inset;} /* layered + inset */
+    .s-4{box-shadow: 0 8px 0 rgba(99,102,241,0.05), 0 18px 40px rgba(2,6,23,0.5);} /* offset edge + ambient */
+
+    /* ==== TEXT EFFECTS & GRADIENTS ==== */
+    .highlight{background:linear-gradient(90deg,#fff,rgba(150,180,255,0.95));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+
+    /* ======= UTILITIES & FOOTER ======= */
+    .muted{color:var(--muted)}
+    footer{margin-top:auto;color:var(--muted);font-size:.9rem}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">BR</div>
+          <div>
+            <div style="font-weight:800">Brandrise</div>
+            <div class="muted" style="font-size:.85rem">CSS Playground • Box-Shadow Showcase</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#">Home</a>
+          <a href="#features">Features</a>
+          <a href="#shadows">Shadows</a>
+        </nav>
+      </div>
+
+      <section class="hero" id="features">
+        <div class="kicker">Showcase</div>
+        <h1>Beautiful Responsive Page — Rounded Corners, Gradients & Box-Shadows</h1>
+        <p class="lead">This demo uses multiple backgrounds, background-size/origin/clip, CSS gradients, color keywords, text effects, custom fonts, and advanced box-shadow techniques (stacked, inset, offset) across components. Resize to see responsive behavior.</p>
+
+        <div class="cta">
+          <button class="btn btn-primary">Download</button>
+          <button class="btn btn-ghost">View Docs</button>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="title">Rounded Corners</div>
+            <div class="desc">Soft corner radii at multiple scales: sm, md, lg to create a tactile UI feel.</div>
+          </div>
+          <div class="feature">
+            <div class="title">Multiple Backgrounds</div>
+            <div class="desc">Use comma-separated backgrounds with different background-size &amp; background-origin values.</div>
+          </div>
+          <div class="feature">
+            <div class="title">Text Effects & Gradients</div>
+            <div class="desc">Gradient text via background-clip, plus subtle animated highlights for emphasis.</div>
+          </div>
+        </div>
+
+        <div class="shadows" id="shadows">
+          <div class="shadow-sample s-1">
+            <div class="s-left">
+              <div class="sample-title">Soft Ambient</div>
+              <div class="sample-desc">Standard soft drop shadow for cards.</div>
+            </div>
+            <div>box-shadow: <code>0 6px 20px rgba(2,6,23,0.6)</code></div>
+          </div>
+
+          <div class="shadow-sample s-2">
+            <div class="s-left">
+              <div class="sample-title">Deep Dramatic</div>
+              <div class="sample-desc">High elevation effect for modal/dialog emphasis.</div>
+            </div>
+            <div>box-shadow: <code>0 18px 50px rgba(3,8,30,0.6)</code></div>
+          </div>
+
+          <div class="shadow-sample s-3">
+            <div class="s-left">
+              <div class="sample-title">Layered + Inset</div>
+              <div class="sample-desc">Combines outer glow with inner subtle inset to create depth.</div>
+            </div>
+            <div>box-shadow: <code>0 10px 30px rgba(99,102,241,0.12), 0 2px 6px rgba(6,182,212,0.06) inset</code></div>
+          </div>
+
+          <div class="shadow-sample s-4">
+            <div class="s-left">
+              <div class="sample-title">Offset Edge</div>
+              <div class="sample-desc">Creates a directional light feel with an offset edge.
+              </div>
+            </div>
+            <div>box-shadow: <code>0 8px 0 rgba(99,102,241,0.05), 0 18px 40px rgba(2,6,23,0.5)</code></div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <aside class="side">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="avatar" role="img" aria-label="avatar"></div>
+        <div>
+          <div style="font-weight:800">Talha Mirza</div>
+          <div class="muted">Front-end Designer</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.6rem;margin-top:6px">
+        <div style="flex:1;padding:.6rem;border-radius:10px;text-align:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 20px rgba(2,6,23,0.45)"><div style="font-weight:800">24</div><div class="muted">Projects</div></div>
+        <div style="flex:1;padding:.6rem;border-radius:10px;text-align:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 20px rgba(2,6,23,0.45)"><div style="font-weight:800">1.2k</div><div class="muted">Followers</div></div>
+      </div>
+
+      <div style="margin-top:auto">
+        <button class="btn btn-primary" style="width:100%">Upgrade</button>
+        <!-- <footer>Made with modern CSS • <span class="muted">Box-shadow variations included</span></footer> -->
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

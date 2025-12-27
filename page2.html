@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signup — Dark Blue Theme</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1724;
+      --muted:#9aa6bf;
+      --accent:#4f8cff; /* blue variant */
+      --accent-2:#2b6df6;
+      --success:#26d07b;
+      --danger:#ff6b6b;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(8,12,20,1) 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 480px 1fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    /* card left: hero / image */
+    .hero{
+      background: linear-gradient(180deg, rgba(79,140,255,0.06), rgba(43,109,246,0.03));
+      border-radius:var(--radius);
+      padding:28px;
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+      box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+
+    .hero img{
+      width:100%;
+      border-radius:12px;
+      object-fit:cover;
+      display:block;
+      box-shadow: 0 8px 30px rgba(43,109,246,0.07) inset;
+    }
+
+    .hero h2{margin:0;font-size:20px}
+    .hero p{margin:0;color:var(--muted);line-height:1.4}
+
+    /* form card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;margin-bottom:12px
+    }
+    .logo{
+      height:44px;width:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:18px;box-shadow: 0 6px 18px rgba(79,140,255,0.12);
+    }
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    form{display:grid;gap:12px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input[type="text"], input[type="email"], input[type="password"]{
+      width:100%;padding:12px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:inherit;font-size:15px;
+      outline:none;transition:box-shadow .18s, border-color .18s;
+    }
+    input:focus{box-shadow:0 6px 18px rgba(79,140,255,0.12);border-color:rgba(79,140,255,0.28)}
+
+    .field-row{position:relative}
+    .toggle-pass{position:absolute;right:10px;top:36px;font-size:13px;cursor:pointer;color:var(--muted);user-select:none}
+
+    .muted{color:var(--muted);font-size:13px}
+
+    .actions{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+    .btn{
+      padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(184, 184, 185, 0.14);
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(255, 0, 0, 0.04);color:var(--muted);font-weight:600}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+
+    .small-link{font-size:13px;color:var(--accent);text-decoration:none}
+    .small-link:hover{text-decoration:underline}
+
+    .helper{display:flex;gap:12px;align-items:center}
+    .checkbox{display:flex;align-items:center;gap:8px}
+    input[type=checkbox]{width:16px;height:16px}
+
+    .error{color:var(--danger);font-size:13px}
+    .success{color:var(--success);font-size:13px}
+
+    /* T&C modal */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60;padding:20px
+    }
+    .modal.open{display:flex}
+    .modal .box{width:100%;max-width:760px;background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 24px 80px rgba(2,6,23,0.7)}
+    .modal h3{margin:0 0 8px 0}
+    .modal p{color:var(--muted);line-height:1.5}
+    .modal .close{margin-top:12px;text-align:right}
+
+    /* responsive */
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr;max-width:720px}
+      .hero{order:2}
+    }
+    @media (max-width:520px){
+      .card{padding:18px}
+      .hero{padding:18px}
+      .logo{height:40px;width:40px}
+    }
+
+    footer.attribution{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:985px){
+    .hero{
+        display:none;
+    }
+  }
+    @media(max-width:785px){
+    .card{
+      padding: 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 1px;
+      background-color: transparent;
+      }
+      .wrap {
+        margin: 0;
+      }
+}
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+
+    <section class="hero" aria-hidden="false">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Signup illustration">
+      <h2>Join our community</h2>
+      <p>Secure, fast onboarding with a modern dark UI. Create your account to get access to the dashboard, realtime updates, and customization options.</p>
+      <p class="muted">Already have an account? <a href="#login" class="small-link">Log in</a></p>
+    </section>
+
+    <section class="card" aria-labelledby="signup-title">
+      <div class="brand">
+        <div class="logo">SB</div>
+        <div>
+          <h1 id="signup-title">Create an account</h1>
+          <p class="muted">Sign up and start your free trial — no credit card required</p>
+        </div>
+      </div>
+
+      <form id="signup-form" novalidate>
+        <div class="grid-2">
+          <div>
+            <label for="fullname">Full name</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Your full name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field-row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" minlength="8" placeholder="At least 8 characters" required>
+            <span class="toggle-pass" data-target="password">Show</span>
+          </div>
+
+          <div class="field-row">
+            <label for="confirm">Confirm password</label>
+            <input id="confirm" name="confirm" type="password" minlength="8" placeholder="Repeat password" required>
+            <span class="toggle-pass" data-target="confirm">Show</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="helper">
+            <label class="checkbox"><input type="checkbox" id="accept" required> <span class="muted">I agree to the</span></label>
+            <button type="button" class="btn ghost" id="view-terms">T & C</button>
+            <a href="#privacy" class="small-link">Privacy</a>
+          </div>
+          <a href="#forgot" class="small-link">Forgot password?</a>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:6px;align-items:center">
+          <button id="submit-btn" class="btn" type="submit">Create account</button>
+          <button type="button" class="btn ghost" id="demo">Sign up with demo</button>
+        </div>
+
+        <p class="muted" style="margin-top:10px">By creating an account you agree to our <a href="#terms" class="small-link">Terms</a> and <a href="#privacy" class="small-link">Privacy Policy</a>.</p>
+
+        <div id="message" role="status" aria-live="polite" style="margin-top:8px"></div>
+      </form>
+
+      <footer class="attribution">Need help? <a class="small-link" href="#support">Contact support</a></footer>
+    </section>
+  </main>
+
+  <!-- Modal: T&C -->
+  <div class="modal" id="modal-terms" aria-hidden="true">
+    <div class="box" role="dialog" aria-labelledby="terms-title">
+      <h3 id="terms-title">Terms & Conditions</h3>
+      <p class="muted">These are sample terms used only for the signup demo. Replace with your real terms and privacy policy. Please ensure any legal text you use is reviewed by counsel.</p>
+      <p class="muted">1. Use of the service is subject to the following... (lorem ipsum)</p>
+      <div class="close"><button class="btn ghost" id="close-terms">Close</button></div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle password visibility
+    document.querySelectorAll('.toggle-pass').forEach(el => {
+      el.addEventListener('click', () => {
+        const target = document.getElementById(el.dataset.target);
+        if (!target) return;
+        if (target.type === 'password'){
+          target.type = 'text'; el.textContent = 'Hide';
+        } else { target.type = 'password'; el.textContent = 'Show'; }
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById('modal-terms');
+    document.getElementById('view-terms').addEventListener('click', () => { modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); });
+    document.getElementById('close-terms').addEventListener('click', () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click', (e)=>{ if (e.target === modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+    // Form validation
+    const form = document.getElementById('signup-form');
+    const msg = document.getElementById('message');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault(); msg.textContent='';
+      const fullname = form.fullname.value.trim();
+      const email = form.email.value.trim();
+      const pw = form.password.value;
+      const confirm = form.confirm.value;
+      const accept = document.getElementById('accept').checked;
+
+      const errors = [];
+      if (fullname.length < 2) errors.push('Please enter your full name.');
+      if (!email.match(/^\S+@\S+\.\S+$/)) errors.push('Please enter a valid email.');
+      if (pw.length < 8) errors.push('Password must be at least 8 characters.');
+      if (pw !== confirm) errors.push('Passwords do not match.');
+      if (!accept) errors.push('You must accept the terms.');
+
+      if (errors.length){
+        msg.innerHTML = '<div class="error">' + errors.join('<br>') + '</div>';
+        return;
+      }
+
+      // Simulated success (replace with real submission)
+      msg.innerHTML = '<div class="success">Account created — welcome, ' + (fullname.split(' ')[0] || '') + '!</div>';
+      document.getElementById('submit-btn').disabled = true;
+      setTimeout(()=>{ form.reset(); document.getElementById('submit-btn').disabled = false; msg.innerHTML=''; }, 1400);
+    });
+
+    // Demo button behavior
+    document.getElementById('demo').addEventListener('click', ()=>{
+      form.fullname.value = 'Demo User';
+      form.email.value = 'demo@example.com';
+      form.password.value = 'demopassword';
+      form.confirm.value = 'demopassword';
+      document.getElementById('accept').checked = true;
+    });
+  </script>
+</body>
+</html>

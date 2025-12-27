@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Background</title>
+<style>
+  /* Full-screen animated background */
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff6ec4, #7873f5, #42f5ef, #f5a742);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
+</head>
+<body>
+  <h1>Trendy Animated Background</h1>
+</body>
+</html>

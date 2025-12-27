@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Full Screen 3D Box</title>
+
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:#0d1117;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Full screen animated 3D box */
+.box{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, 
+        #00aaff, 
+        #09afa1, 
+        #715796, 
+        #8a3861, 
+        #d37639
+    );
+    background-size: 500%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size: 6rem;
+    font-weight: 900;
+    animation: rotate3D 10s infinite linear, colors 12s infinite alternate;
+    transform-style: preserve-3d;
+    box-shadow: 10px 10px 10px 10px #3966a0;
+}
+
+/* 3D rotation */
+@keyframes rotate3D {
+    0%   { transform: rotateX(0deg) rotateY(0deg); }
+    25%  { transform: rotateX(45deg) rotateY(90deg); }
+    50%  { transform: rotateX(90deg) rotateY(180deg); }
+    75%  { transform: rotateX(135deg) rotateY(270deg); }
+    100% { transform: rotateX(180deg) rotateY(360deg); }
+}
+
+/* Color animation */
+@keyframes colors {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+</style>
+</head>
+
+<body>
+
+    <div class="box">
+        Assalamualaikum😇
+    </div>
+
+</body>
+</html>

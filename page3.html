@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dark Blue UI — Navbars & Gallery</title>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+    body{
+        background:#0d0f1a;
+        color:white;
+        overflow-x:hidden;
+    }
+
+    /* TOP NAV (improved beautiful design) */
+    .top-nav{
+        width:100%;
+        height:70px;
+        background:linear-gradient(90deg,#0f1324,#08101f);
+        border-bottom:1px solid rgba(0,162,255,0.25);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:0 25px;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:1000;
+        backdrop-filter:blur(6px);
+    }
+    .top-nav h1{
+        color:#4db8ff;
+        font-size:22px;
+        letter-spacing:1px;
+        font-weight:600;
+    }
+
+    .top-links{
+        display:flex;
+        gap:20px;
+        align-items:center;
+    }
+    .top-links a{
+        color:#8fcaff;
+        text-decoration:none;
+        font-size:15px;
+        transition:0.3s;
+    }
+    .top-links a:hover{
+        color:white;
+    }
+
+    .nav-btn{
+        background:#1a2238;
+        padding:10px 18px;
+        border-radius:8px;
+        cursor:pointer;
+        border:1px solid rgba(0,162,255,0.4);
+        transition:0.3s;
+        font-size:15px;
+    }
+    .nav-btn:hover{
+        background:#005bbd;
+    }
+
+    /* SIDE NAVS */
+    .side-nav{
+        width:260px;
+        height:100vh;
+        background:#0f1324;
+        border-right:1px solid rgba(0,162,255,0.2);
+        position:fixed;
+        top:70px;
+        padding:22px;
+        transition:0.3s;
+        overflow-y:auto;
+        z-index:900;
+    }
+    .left-nav{ left:0; }
+    .right-nav{
+        right:0;
+        border-left:1px solid rgba(0,162,255,0.2);
+        border-right:none;
+    }
+
+    .side-hidden{ width:0; padding:0; opacity:0; }
+
+    .side-nav h2{
+        font-size:18px;
+        margin-bottom:15px;
+        color:#4db8ff;
+    }
+    .side-nav ul li{
+        list-style:none;
+        padding:12px 0;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        cursor:pointer;
+        transition:0.3s;
+        font-size:15px;
+    }
+    .side-nav ul li:hover{
+        color:#4db8ff;
+        padding-left:6px;
+    }
+
+    /* GALLERY */
+    .content{
+        padding:110px 25px;
+        transition:0.3s;
+    }
+    .gallery{
+        display:flex;
+        flex-wrap:wrap;
+        gap:22px;
+        justify-content:center;
+    }
+    .img-card{
+        position:relative;
+        background:#1a2238;
+        border-radius:12px;
+        overflow:hidden;
+        border:1px solid rgba(0,162,255,0.3);
+        width:270px;
+        height:210px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+    .img-card:hover{ transform:scale(1.07); }
+
+    .img-card img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .hover-box{
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:70px;
+        background:rgba(0,0,0,0.65);
+        backdrop-filter:blur(4px);
+        padding:10px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        transform:translateY(100%);
+        transition:0.3s;
+    }
+
+    .img-card:hover .hover-box{
+        transform:translateY(0);
+    }
+
+    .hover-box p{
+        font-size:14px;
+    }
+
+    .hover-btns{
+        display:flex;
+        gap:10px;
+    }
+
+    .hover-btns button{
+        flex:1;
+        padding:7px;
+        background:#005bbd;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        color:white;
+        transition:0.3s;
+        font-size:12px;
+    }
+
+    .hover-btns button:hover{
+        background:#007bff;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:650px){
+        .img-card{ width:100%; height:190px; }
+        .top-links{ display:none; }
+    }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+    <span class="nav-btn" onclick="toggleLeft()">☰ Left</span>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+        <img src="images/my logo.jpg" alt="Logo" style="height:40px;width:40px;border-radius:6px;object-fit:cover;">
+        <h1>Dark Blue Gallery</h1>
+    </div>
+
+    <div class="top-links">
+        <a href="#">Home</a>
+        <a href="#">Images</a>
+        <a href="#">Profile</a>
+        <a href="#">Help</a>
+    </div>
+
+    <span class="nav-btn" onclick="toggleRight()">Right ☰</span>
+</div>
+
+<div id="leftNav" class="side-nav left-nav">
+    <h2>Left Menu</h2>
+    <ul>
+        <li>Dashboard</li>
+        <li>Profile</li>
+        <li>Gallery</li>
+        <li>Settings</li>
+    </ul>
+</div>
+
+<div id="rightNav" class="side-nav right-nav">
+    <h2>Right Menu</h2>
+    <ul>
+        <li>Notifications</li>
+        <li>Messages</li>
+        <li>Favorites</li>
+        <li>Support</li>
+    </ul>
+</div>
+
+<div class="content" id="content">
+    <div class="gallery">
+        <script>
+            const galleryImages = [
+                "https://picsum.photos/400/300",
+                "https://picsum.photos/420/300",
+                "https://picsum.photos/410/310",
+                "https://picsum.photos/430/290",
+                "https://picsum.photos/440/310",
+                "https://picsum.photos/450/300",
+                "https://picsum.photos/460/300",
+                "https://picsum.photos/400/350",
+                "https://picsum.photos/420/310",
+                "https://picsum.photos/430/310",
+                "https://picsum.photos/450/330",
+                "https://picsum.photos/460/320"
+            ];
+            document.write(
+                galleryImages.map(src => `
+                <div class='img-card'>
+                    <img src='${src}' />
+                    <div class='hover-box'>
+                        <p>Random Image</p>
+                        <div class='hover-btns'>
+                            <button onclick=\"window.open('${src}')\">View</button>
+                            <button onclick=\"window.open('${src}')\">Download</button>
+                        </div>
+                    </div>
+                </div>`).join("")
+            );
+        </script>
+    </div>
+</div>
+
+<script>
+    function toggleLeft(){
+        document.getElementById("leftNav").classList.toggle("side-hidden");
+    }
+    function toggleRight(){
+        document.getElementById("rightNav").classList.toggle("side-hidden");
+    }
+</script>
+
+</body>
+</html>
+

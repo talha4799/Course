@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-indent: 50px;
+    letter-spacing: 10px;
+    line-height: 1.5;
+    word-spacing: 20px;
+    white-space: pre-wrap;
+    text-shadow: 2px 2px 2px black, 2px 5px 1px blue, 2px 2px 2px white;
+    color: white;
+}

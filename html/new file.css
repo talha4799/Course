@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+body{
+    background-color: rgb(129, 88, 0);
+}
+
+h1{
+    color: rgb(255, 0, 0);
+}
+
+i{
+    color: aqua;
+}
+
+em {
+    color: blue;
+}
+
+h4 {
+    color: brown;
+}
+h2{
+    color: blueviolet;
+}
+h3{
+    color: indianred;
+}
+h5{
+    color: springgreen;
+}
+p{
+    color: forestgreen;
+} 
+
+h6{
+    color: black;
+}

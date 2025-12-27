@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Navbar</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f3d33, #1c6758);
+    height:200vh;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:12px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:1000;
+
+    /* GLASS EFFECT */
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-bottom:2px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 18px rgba(0,0,0,0.3);
+    border-radius:0 0 25px 25px;
+}
+
+/* LEFT SECTION */
+.left-section{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.left-section img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:2px solid gold;
+    box-shadow:0 0 10px gold;
+}
+
+.left-section p{
+    color:white;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-shadow:0 0 4px black;
+}
+
+/* CENTER LINKS */
+.center-section{
+    display:flex;
+    gap:25px;
+}
+
+.center-section a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:8px 18px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(5px);
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.3);
+}
+
+.center-section a:hover{
+    background:gold;
+    color:black;
+    transform:translateY(-3px);
+    box-shadow:0 6px 12px rgba(255,215,0,0.5);
+}
+
+/* RIGHT BUTTONS */
+.right-section{
+    display:flex;
+    gap:12px;
+}
+
+.right-section button{
+    padding:8px 16px;
+    border-radius:25px;
+    border:1px solid gold;
+    background:transparent;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.right-section button:hover{
+    background:gold;
+    color:black;
+    box-shadow:0 5px 12px rgba(255,215,0,0.6);
+}
+
+/* HAMBURGER MENU */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:3px;
+    background:gold;
+    border-radius:4px;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(12px);
+    padding:15px;
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+}
+
+.mobile-menu a{
+    padding:12px;
+    text-align:center;
+    text-decoration:none;
+    color:gold;
+    font-weight:600;
+    transition:.3s;
+}
+
+.mobile-menu a:hover{
+    background:gold;
+    color:black;
+    border-radius:20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .center-section,
+    .right-section{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+}
+  .column{
+    padding: 20px;
+    column-count: 3;
+    column-gap: 25px;
+    column-rule: 1px solid white;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <!-- LEFT -->
+    <div class="left-section">
+        <img src="images/images (3).jpg" alt="logo">
+        <p>My Dream</p>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center-section">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-section">
+        <button>Login</button>
+        <button>Sign Up</button>
+    </div>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</nav>
+
+<!-- MOBILE DROPDOWN -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+    <a href="#">Login</a>
+    <a href="#">Sign Up</a>
+</div>
+
+<script>
+function toggleMenu(){
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
+<main style="padding-top:130px; text-align:center; color:white;">
+    <div class="main"> <h1>My Life</h1>
+    <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore repudiandae ea blanditiis incidunt, nihil obcaecati esse odio eaque error possimus eos dolorum impedit at exercitationem. Commodi ducimus asperiores vel consequuntur distinctio beatae dolores laudantium quos eligendi eos voluptate magnam obcaecati vero totam sed pariatur amet iure nemo sint animi, accusamus voluptatem mollitia. Minima quas provident tempore ipsam voluptatibus repellendusLorem ipsum dolor sit amet consectetur adipisicing elit. Labore repudiandae ea blanditiis incidunt, nihil obcaecati esse odio eaque error possimus eos dolorum impedit at exercitationem. Commodi ducimus asperiores vel consequuntur distinctio beatae dolores laudantium quos eligendi eos voluptate magnam obcaecati vero totam sed pariatur amet iure nemo sint animi, accusamus voluptatem mollitia. Minima quas provident tempore ipsam voluptatibus repellendusLorem ipsum dolor sit amet consectetur adipisicing elit. Labore repudiandae ea blanditiis incidunt, nihil obcaecati esse odio eaque error possimus eos dolorum impedit at exercitationem. Commodi ducimus asperiores vel consequuntur distinctio beatae dolores laudantium quos eligendi eos voluptate magnam obcaecati vero totam sed pariatur amet iure nemo sint animi, accusamus voluptatem mollitia. Minima quas provident tempore ipsam voluptatibus repellendusLorem ipsum dolor sit amet consectetur adipisicing elit. Labore repudiandae ea blanditiis incidunt, nihil obcaecati esse odio eaque error possimus eos dolorum impedit at exercitationem. Commodi ducimus asperiores vel consequuntur distinctio beatae dolores laudantium quos eligendi eos voluptate magnam obcaecati vero totam sed pariatur amet iure nemo sint animi, accusamus voluptatem mollitia. </i>
+    </div>
+    <h1>lorem World</h1>
+    <div class="column">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque unde voluptatum facilis ab sint repellat, velit voluptate accusamus aspernatur eligendi quae natus atque harum. Explicabo, ipsa? Id, dolores perferendis facilis alias incidunt ipsam expedita voluptas nulla nihil aut provident, ducimus error nobis, numquam optio consequatur consequuntur libero reiciendis minima. Soluta!consectetur adipisicing elit. Doloremque unde voluptatum facilis ab sint repellat, velit voluptate accusamus aspernatur eligendi quae natus atque harum. Explicabo, ipsa? Id, dolores perferendis facilis alias incidunt ipsam expedita voluptas nulla nihil aut provident, ducimus error nobis, numquam optio consequatur consequuntur libero reiciendis minima. Soluta!
+    </div>
+</main>
+<script src="gt.js"></script>
+
+</body>
+</html>

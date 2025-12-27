@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+.newspaper {
+  column-count: 3;
+  column-rule: 2px solid black;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  border: 1px solid rgba(110, 32, 32, 0.596);
+  color: black;
+  margin: 0 4px;
+  border-radius: 5px;
+  transition: background-color 1s;  
+}
+
+.pagination li a.active {
+  background-color: #b14c11;
+  color: white;
+}
+
+.pagination li a:hover:not(.active) {
+  background-color: rgb(141, 84, 84);
+}
+</style>
+</head>
+<body>
+
+<h1>lorem World</h1>
+
+<div class="newspaper">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim 
+</div>
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">A</a></li>
+  <li><a class="active" href="#">B</a></li>
+  <li><a href="#">C</a></li>
+  <li><a href="#">D</a></li>
+  <li><a href="#">E</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+
+
+</body>
+</html>

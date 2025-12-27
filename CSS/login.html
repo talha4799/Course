@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Blue Split Login</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body{
+        background:#080d18;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        color:white;
+    }
+
+    /* MAIN WRAPPER */
+    .container{
+        width:100%;
+        max-width:950px;
+        background:#0c1627;
+        display:flex;
+        border-radius:20px;
+        overflow:hidden;
+        position:relative;
+        padding:2px;
+        background: linear-gradient(135deg, #006eff, #00b7ff, #006eff);
+        background-size:300% 300%;
+        animation:borderGlow 6s ease infinite;
+    }
+
+    @keyframes borderGlow{
+        0%{ background-position:0% 50%; }
+        50%{ background-position:100% 50%; }
+        100%{ background-position:0% 50%; }
+    }
+
+    /* LEFT SIDE CONTENT */
+    .left{
+        flex:1;
+        padding:40px 30px;
+        background:#0c1627;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+
+    .left h1{
+        font-size:35px;
+        margin-bottom:10px;
+        color:#cfe7ff;
+    }
+
+    .left p{
+        font-size:16px;
+        line-height:1.6;
+        color:#9db7d6;
+        opacity:0.9;
+    }
+
+    /* RIGHT SIDE LOGIN CARD */
+    .right{
+        flex:1;
+        background:#101d33;
+        padding:40px 35px;
+        position:relative;
+    }
+
+    .right h2{
+        text-align:center;
+        margin-bottom:25px;
+        color:#d5e9ff;
+        font-size:26px;
+    }
+
+    .input-group{
+        width:100%;
+        margin-bottom:18px;
+    }
+
+    .input-group label{
+        font-size:14px;
+        color:#bcd7ff;
+    }
+
+    .input-group input{
+        width:100%;
+        padding:12px;
+        margin-top:6px;
+        background:#0b1526;
+        border:none;
+        border-radius:12px;
+        color:#d9e7ff;
+        font-size:15px;
+        outline:2px solid transparent;
+        transition:0.3s;
+    }
+
+    .input-group input:focus{
+        outline:2px solid #0084ff;
+        box-shadow:0 0 15px rgba(0,132,255,0.5);
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        background:#0084ff;
+        border:none;
+        border-radius:14px;
+        color:white;
+        font-size:17px;
+        margin-top:8px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        background:#006ed1;
+        box-shadow:0 0 15px rgba(0,132,255,0.6);
+    }
+
+    .links{
+        text-align:center;
+        margin-top:15px;
+    }
+
+    .links a{
+        color:#64acff;
+        text-decoration:none;
+        font-size:14px;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media(max-width:850px){
+        .container{
+            flex-direction:column;
+        }
+        .left, .right{
+            padding:30px 25px;
+            text-align:center;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left">
+        <h1>Welcome to BlueSpace</h1>
+        <p>
+            Experience a clean, modern, app-style login interface designed 
+            with dark mode and glowing blue accents — perfect for mobile and desktop.
+        </p>
+    </div>
+
+    <!-- RIGHT LOGIN -->
+    <div class="right">
+        <h2>Login</h2>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email">
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter password">
+        </div>
+
+        <button>Login</button>
+
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

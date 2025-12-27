@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form action="fifth.html" method="get" target="_blank" novalidate>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" required><br>
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" name="fullName" id="fullName" required><br>
+        <input type="radio" name="computer_lang" id="html" value="HTML" required>
+        <label for="html">HTML</label><br>
+        <input type="radio" name="computer_lang" id="css" value="CSS" required>
+        <label for="css">CSS</label><br>
+        <input type="radio" name="computer_lang" id="js" value="JS" required>
+        <label for="js">JS</label><br>
+
+       
+         <b>Answer in Yes or No</b><i>(Optional)</i><br>
+        <input type="checkbox" name="vehiclecar" id="car" value="Car">
+        <label for="car">I have a Car</label><br>
+        <input type="checkbox" name="vehiclebike" id="bike" value="Bike">
+        <label for="bike">I have a bike</label><br>
+        <input type="checkbox" name="vehiclecycle" id="cycle" value="Cycle">
+        <label for="cycle">I have a Cycle</label>
+        <input type="submit" value="Submit Data">
+        <input type="text" placeholder="Enter Date of Birth"/>
+        <input type="radio" name="" id=""/>
+        <input type="radio" name="" id=""/>
+        <input type="checkbox" name="" id="">
+        <input type="submit" value="Button"></input>
+    </form>
+    
+    <label for="cars">Choose A Car You Like</label>
+    <select name="vehicle" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="fiat">Fiat</option>
+      <option value="audi">Audi</option>
+    </select>
+    <textarea name="message" id="text" placeholder="Enter Message"style="min-width: 200px; max-width: 300px; min-height: 400px; max-height: 500px">
+    </textarea>
+    <button type="button" onclick='alert("Hello World")'>Click Me</button>
+    
+
+ <form action="">
+
+    <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" required><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" required><br><br>
+    <input type="submit" value="Submit">
+</fieldset>
+</form>
+ <form action="">
+    <input list="browsers">
+    <datalist id="browsers">
+         <option value="Edge">
+         <option value="Firefox">
+         <option value="Chrome">
+         <option value="Opera">
+         <option value="Safari">
+    </datalist>
+</form>
+
+<form action=""
+  oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+  0
+  <input type="range"  id="a" name="a" value="50">
+  100 +
+  <input type="number" id="b" name="b" value="50">
+  =
+  <output name="x" for="a b"></output>
+  <br><br>
+  <input type="submit">
+</form>
+<form action="" oninput="bright.value=parseInt(rng.value)+parseInt(nmb.value)">
+    0
+    <input type="range" name="rng" id="rng" value="50">
+    100 +
+    <input type="number" name="nmb" id="nmb" value="1">
+    <output name="bright" for="rng nmb" ></output>
+    <input type="submit" value="Submit">
+
+</form>
+</body>
+</html>

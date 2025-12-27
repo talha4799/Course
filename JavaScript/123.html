@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(90, 74, 74);
+            font-family: Arial;
+        }
+        .box {
+            border: 2px solid rgb(114, 108, 108);
+            width: 300px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <form onsubmit="return validateForm(event)">
+
+        <label>FULL NAME</label><br>
+        <input type="text" id="fname" placeholder="Enter your name" >
+        <div id="nameError" class="error"></div><br>
+
+        <label>EMAIL</label><br>
+        <input type="email" id="email" placeholder="Enter your email" >
+        <div id="emailError" class="error"></div><br>
+
+        <label>PHONE</label><br>
+        <input type="tel" id="phone" placeholder="03xxxxxxxxx" >
+        <div id="phoneError" class="error"></div><br>
+
+        <label>PASSWORD</label><br>
+        <input type="password" id="password" placeholder="******">
+        <div id="passError" class="error"></div><br>
+
+
+        <label>Choose Image</label><br>
+        <input type="file" id="image" multiple>
+        <div id="imageError" class="error"></div><br>
+
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<script src="123.js"></script>
+
+</body>
+</html>

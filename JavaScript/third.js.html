@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Age Check</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#000000;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .box{
+            background:#000000;
+            padding:30px;
+            border-radius:12px;
+            width:300px;
+            text-align:center;
+            box-shadow:0 0 15px rgb(255, 255, 255);
+            transition: 0.3s ease;
+        }
+        .box:hover{
+            transform: translateY(-5px);
+        }
+        input{
+            padding:10px;
+            width:100%;
+            margin-top:10px;
+            border-radius:6px;
+            border:none;
+        }
+        button{
+            margin-top:15px;
+            width:100%;
+            padding:12px;
+            background:#238636;
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+            box-shadow:0 0 15px rgb(255, 255, 255);
+             transition: 0.3s ease;
+            
+        }
+        button:hover{
+            background:#2ea043;
+             transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Enter DATE</h2>
+        <label for="birthday"> PLAECE Enter :</label><br>
+        <input type="date" id="birthday">
+        <button onclick="checkDate()">Click Me</button>
+    
+    </div>
+    <script src="third.js"></script>
+    </body>
+    </html>

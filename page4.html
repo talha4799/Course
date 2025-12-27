@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beautiful Dropdown</title>
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+  }
+  body{
+    height:100vh;
+    background:#0d1117;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .dropdown-wrapper{
+    position:relative;
+  }
+  .dropdown-btn{
+    background:#1f2937;
+    color:#60a5fa;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+  }
+  .dropdown-btn:hover{
+    background:#111827;
+    box-shadow:0 0 12px #3b82f6;
+  }
+  .dropdown-box{
+    position:absolute;
+    top:60px;
+    width:200px;
+    background:#1f2937;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    overflow:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(-10px);
+    transition:0.25s ease;
+  }
+  .dropdown-box.open{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+  .dropdown-item{
+    padding:12px 15px;
+    border-bottom:1px solid #111827;
+    color:#93c5fd;
+    cursor:pointer;
+    transition:0.25s;
+  }
+  .dropdown-item:hover{
+    background:#111827;
+    color:#60a5fa;
+  }
+  .dropdown-item:last-child{
+    border-bottom:none;
+  }
+  @media(max-width:480px){
+    .dropdown-btn{font-size:14px; padding:10px 16px;}
+    .dropdown-box{width:170px;}
+  }
+</style>
+</head>
+<body>
+  <div class="dropdown-wrapper">
+    <button class="dropdown-btn" id="dropdownBtn">Open Menu ▼</button>
+
+    <div class="dropdown-box" id="dropdownBox">
+      <div class="dropdown-item">Dashboard</div>
+      <div class="dropdown-item">Settings</div>
+      <div class="dropdown-item">Profile</div>
+      <div class="dropdown-item">Logout</div>
+    </div>
+  </div>
+
+<script>
+  const btn = document.getElementById("dropdownBtn");
+  const box = document.getElementById("dropdownBox");
+
+  btn.addEventListener("click", () => {
+    box.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if(!btn.contains(e.target) && !box.contains(e.target)){
+      box.classList.remove("open");
+    }
+  });
+</script>
+</body>
+</html>

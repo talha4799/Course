@@ -1,0 +1,22 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: aqua;
+    /* pointer-events: none;
+    cursor:progress; */
+}
+/* 
+.container {
+    width: 400px;
+    height: 500px;
+    background-color: red;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+} */

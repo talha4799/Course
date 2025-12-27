@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;  
+        }
+
+        .container {
+            overflow: hidden;
+            width: 100%;
+            margin-top: 5px;
+            position: fixed;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: antiquewhite;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid rgb(63, 63, 63);
+            border-radius: 20px;
+            height: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            justify-content: left;
+            align-items: start;
+            width: 15%;
+        }
+
+        .left-section a {
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            text-decoration-style: none;
+            text-decoration: none;
+            color: Black;
+            pointer-events: unset;
+        }
+
+        .left-section a img {
+            height: 40px;
+            width: 40px;
+            background-color: none;
+        }
+
+        .left-section a p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+            font-style: oblique;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .center-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            background-color: aquamarine;
+            border: 1px solid rgb(189, 186, 186);
+            border-radius: 30px;
+            margin: 10px;
+        }
+
+        .center-section .nav-center-links {
+            margin: 0 20px 0 20px;
+            padding: 2px 10px 2px 10px;
+            text-decoration: none;
+            background-color:rgb(0, 247, 255);
+            color: black;
+            border-radius: 20px;
+            transition:1s; 
+        }
+
+        .center-section .nav-center-links:hover {
+            background: transparent;
+            background-color: azure;
+            transition: 2s;
+        }
+
+        .right-section {
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 15%;
+            background-color: rgba(32, 32, 185, 0.637);
+            margin: 4px;
+            border: 3px solid white;
+            border-radius: 20px;
+        }
+
+        .right-section button {
+            padding: 8px 12px 8px 12px;
+            border: 1px solid;
+            border-radius: 20px;
+            background: transparent;
+            color: white;
+            transition: 1s;
+        }
+
+        .right-section button:hover{
+            background-color: blue;
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="section left-section">
+                <a href="/" class="nav-left-link"><img src="images/facebook.png" alt="Logo"><p>My logo</p></a>
+            </div>
+            <div class="section center-section">
+                <a href="" class="nav-center-links">Home</a>
+                <a href="" class="nav-center-links">Features</a>
+                <a href="" class="nav-center-links">Contact Us</a>
+                <a href="" class="nav-center-links">Blog</a>
+                <a href="" class="nav-center-links">Updates</a>
+            </div>
+            <div class="section right-section">
+                    <button>Login</button>
+                    <button>Sign Up</button>
+            </div>
+        </nav>
+    </div>
+
+    <main style="padding-top: 70px;">
+        <h1>
+            Hello World
+        </h1>
+    </main>
+</body>
+</html>

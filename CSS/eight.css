@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* img { */
+    /* filter: blur(20px); */
+    /* filter: brightness(140%); */
+    /* filter: contrast(220%); */
+    /* filter: drop-shadow(10px 10px 7px rgb(12, 12, 12)); */
+    /* filter: grayscale(30%); */
+    /* filter: hue-rotate(40deg); */
+    /* filter: invert(140%); */
+    /* filter: opacity(0.9); */
+    /* filter: saturate(120%); */
+    /* filter: sepia(1); */
+    /* float: left;
+    clip-path: circle(40%);  
+    shape-outside: circle(45%);   */
+/* } */
+.anime-div {
+    width: 200px;
+    height: 7px;
+    background-color: rgba(45, 45, 163, 0.664);
+    border-radius: 5px;
+    animation: moon 1s alternate;
+    animation-iteration-count: 3;
+    transform: translateX(1000px);  /* movement using CSS property ONLY */
+}
+
+@keyframes moon{
+    0% {
+        background-color: rgba(45, 45, 163, 0.664);
+        transform:translateX(-10px);
+    }
+    33% {
+        background-color:rgba(32, 32, 100, 0.863);
+    }
+    66% {
+        background-color:rgba(2, 2, 41, 0.863);
+    }
+    100% {
+        background-color:rgba(208, 9, 235, 0.788);
+        transform:translateX(1150px);
+    }
+}
