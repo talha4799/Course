@@ -4,7 +4,7 @@
 
 ## Git Initialize
 
-- git init.
+- git init
 
 ## Git Add
 
@@ -36,7 +36,7 @@ git reset filename
 
 ## Git Clone
 
-git clone https://github.com/username/repo.git
+git clone "<https://github.com/username/repo.git>"
 
 ## Git Log
 
