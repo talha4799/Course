@@ -54,4 +54,35 @@ function validateForm(event) {
     }
     return valid
 }
+function validateForm(event) {
+    event.preventDefault(); // page reload stop
+
+    let name = document.getElementById("fname").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let password = document.getElementById("password").value;
+
+    // simple validation
+    if (name === "" || email === "" || phone === "" || password === "") {
+        alert("Please fill all fields");
+        return false;
+    }
+
+    // output div
+    let output = document.getElementById("output");
+
+    // new data add (append)
+    output.innerHTML += `
+        <hr>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Password:</b> ${password}</p>
+    `;
+
+    // form clear after submit
+    document.querySelector("form").reset();
+
+    return false;
+}
 
