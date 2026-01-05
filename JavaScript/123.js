@@ -70,6 +70,7 @@ function validateForm(event) {
 
     // output div
     let output = document.getElementById("output");
+    console.log(output);
 
     // new data add (append)
     output.innerHTML += `
