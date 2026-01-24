@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>One Page JavaScript</title>
+<style>
+  body { font-family: Arial; padding: 20px; background:#f4f4f4 }
+  h2 { color: #333 }
+  button { padding: 8px 12px; margin-top: 5px }
+  .box { background:#fff; padding:15px; margin-bottom:20px; border-radius:6px }
+</style>
+</head>
+<body>
+
+<h1>📘 JavaScript – One Page Complete</h1>
+
+<div class="box">
+<h2>1. Variables</h2>
+<p id="var"></p>
+</div>
+
+<div class="box">
+<h2>2. Data Types</h2>
+<p id="types"></p>
+</div>
+
+<div class="box">
+<h2>3. Operators</h2>
+<p id="op"></p>
+</div>
+
+<div class="box">
+<h2>4. If Else</h2>
+<p id="ifelse"></p>
+</div>
+
+<div class="box">
+<h2>5. Function</h2>
+<p id="func"></p>
+</div>
+
+<div class="box">
+<h2>6. Array</h2>
+<p id="arr"></p>
+</div>
+
+<div class="box">
+<h2>7. Object</h2>
+<p id="obj"></p>
+</div>
+
+<div class="box">
+<h2>8. Loop</h2>
+<p id="loop"></p>
+</div>
+
+<div class="box">
+<h2>9. DOM + Event</h2>
+<button onclick="changeText()">Click Me</button>
+<p id="dom">Hello</p>
+</div>
+
+<div class="box">
+<h2>10. Form Validation</h2>
+<input type="text" id="name" placeholder="Enter name">
+<button onclick="check()">Submit</button>
+<p id="msg"></p>
+</div>
+
+<script>
+// 1. Variables
+var a = "Talha";
+let b = 20;
+const c = "Pakistan";
+document.getElementById("var").innerHTML = a + " " + b + " " + c;
+
+// 2. Data Types
+let str = "Hello";
+let num = 10;
+let bool = true;
+document.getElementById("types").innerHTML =
+typeof str + ", " + typeof num + ", " + typeof bool;
+
+// 3. Operators
+let x = 10, y = 5;
+document.getElementById("op").innerHTML = x + y;
+
+// 4. If Else
+let age = 18;
+document.getElementById("ifelse").innerHTML =
+(age >= 18) ? "Allowed" : "Not Allowed";
+
+// 5. Function
+function greet(name){
+  return "Hello " + name;
+}
+document.getElementById("func").innerHTML = greet("JS");
+
+// 6. Array
+let fruits = ["Apple","Banana","Mango"];
+document.getElementById("arr").innerHTML = fruits.join(", ");
+
+// 7. Object
+let person = {name:"Talha", age:20};
+document.getElementById("obj").innerHTML = person.name;
+
+// 8. Loop
+let text = "";
+for(let i=1;i<=5;i++){
+  text += i + " ";
+}
+document.getElementById("loop").innerHTML = text;
+
+// 9. DOM + Event
+function changeText(){
+  document.getElementById("dom").innerHTML = "Text Changed!";
+}
+
+// 10. Form Validation
+function check(){
+  let name = document.getElementById("name").value;
+  if(name === ""){
+    document.getElementById("msg").innerHTML = "Name required";
+  } else {
+    document.getElementById("msg").innerHTML = "Welcome " + name;
+  }
+}
+
+// Console
+console.log("JavaScript One Page Loaded");
+</script>
+
+</body>
+</html>
