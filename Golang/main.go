@@ -9,7 +9,6 @@ import (
 func main() {
 
 	routes.RegisterRoutes()
-
 	port := ":8086"
 
 	fmt.Println("Routes registered successfully")
