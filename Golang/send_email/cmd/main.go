@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	send_email_routes "login/routes"
+	"log"
+	"login/routes_init"
 	"net/http"
 
 	"github.com/joho/godotenv"
@@ -16,10 +17,9 @@ func main() {
 
 	fmt.Println("Hello This is Send Email API project")
 
-	send_email_routes.RegisterRoutes()
-
 	http.HandleFunc("/", home)
-
+	log.Println("Registering routes...")
+	routes_init.RegisterRoutes()
 	port := ":8086"
 	fmt.Printf("Server running at http://localhost%s\n", port)
 

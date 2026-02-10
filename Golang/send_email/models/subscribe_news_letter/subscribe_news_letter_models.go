@@ -1,0 +1,1 @@
+package subscribe_news_letter_models

@@ -1,0 +1,1 @@
+package add_news_updates_models
