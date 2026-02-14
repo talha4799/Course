@@ -6,5 +6,5 @@ import (
 )
 
 func AddNewsUpdatesRoutes() {
-	http.HandleFunc("/api/add_updates", add_news_updates_controller.AddNewsUpdates)
+	http.HandleFunc("/api/news", add_news_updates_controller.AddNewsUpdates)
 }
